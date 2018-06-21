@@ -154,6 +154,28 @@ let findLast = (list) => {
   return currentNode;
 }; 
 
+let reverseList = (list) => {
+
+  let newList = new LinkedList();
+  let currentNode = list.head;
+  let prevNode = list.head;
+  
+  while (currentNode !== null){
+    newList.insertFirst(currentNode.value);
+    prevNode = currentNode;
+    currentNode = currentNode.next;
+    
+  }
+  return newList;
+  // take current node and start new list with new _Node
+  // the next node in the list goes in front of current node(new _Node) and sets the pointer to current node
+  // until current node is null
+  // when current nodes next pointer is null make that node the head
+
+
+
+};
+
 let main = () => {
   let SLL = new LinkedList();
   let newSLL = new LinkedList();
@@ -173,6 +195,7 @@ let main = () => {
   //console.log(isEmpty(newSLL));
   //console.log("previous node is:",prevNode('Hotdog',SLL));
   //console.log(findLast(SLL));
+  console.log(reverseList(SLL));
   return SLL;
 };
 
