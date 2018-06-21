@@ -86,6 +86,16 @@ class LinkedList {
     }
     return currNode;
   }
+
+  makeCycle(item){
+    let currNode = this.head;
+    let nodeAfter = this.head;
+    while(currNode !== null && currNode.value !== afterValue){
+      nodeAfter  = currNode.next;//
+      currNode = nodeAfter;//
+    }
+    nodeAfter.next = new _Node(item,currNode.next);
+  }
  
   remove(item){ 
     //if the list is empty
@@ -259,7 +269,28 @@ main();
 // new list d=> c=>b=>a;
 
 
+// O(n)
+let cycleInAList = (list) => {
+  let currentNode = list.head;
+  let arraytoCompare = [];
+  arraytoCompare.push(currentNode);
 
+  while (currentNode.next !== null ) {
+    if(arraytoCompare.includes(currentNode.next)){ return true;}
+    currentNode = currentNode.next;
+    arraytoCompare.push(currentNode);
+    
+  }
+  return false;
 
+};
+
+let cycledList = new LinkedList();
+cycledList.insertFirst('what');
+cycledList.insertFirst('who');
+cycledList.insertFirst('where');
+cycledList.insertFirst('why');
+cycledList.head.next.next.next = cycledList.head;
+console.log(cycleInAList(cycledList));
 
 
