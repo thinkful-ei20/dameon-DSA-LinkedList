@@ -183,6 +183,21 @@ let thirdFromTheEnd = (list) => {
   return nodeThird;
 
 };
+let middleOfList = (list) => {
+  let currentNode = list.head;
+  let count = 0;
+  while (currentNode.next !== null){
+    count += 1;
+    currentNode = currentNode.next;
+  }
+  currentNode = list.head;
+  console.log(count);
+  for (let i = 0; i < Math.ceil(count/2); i++){
+    currentNode = currentNode.next;
+
+  }
+  return currentNode.value;
+};
 
 
 
@@ -206,7 +221,8 @@ let main = () => {
   //console.log("previous node is:",prevNode('Hotdog',SLL));
   //console.log(findLast(SLL));
   //console.log(reverseList(SLL));
-  console.log(thirdFromTheEnd(SLL));
+  //console.log(thirdFromTheEnd(SLL));
+  console.log(middleOfList(SLL));
   return SLL;
 };
 
@@ -241,7 +257,6 @@ main();
 // new list a <=b <=c <=d
 //or
 // new list d=> c=>b=>a;
-
 
 
 
