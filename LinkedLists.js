@@ -50,14 +50,14 @@ class LinkedList {
 
   insertAfter(afterValue,item) {
     let currNode = this.head;
-    let nodeAfter = this.head;
+    
     while(currNode !== null && currNode.value !== afterValue){
-      nodeAfter  = currNode.next;//
-      currNode = nodeAfter;//
+      currNode = currNode.next;//
+       //
     }
-    nodeAfter.next = new _Node(item,currNode.next);
+    currNode.next = new _Node(item,currNode.next);
   }
-
+  
   insertAt(position,item) {
     let currNode = this.head;
     let prevNode = this.head;
